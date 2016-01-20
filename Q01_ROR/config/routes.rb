@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  get "todo/show/:id" => "todos#show"
+  get "todo/filter/:filter" => "todos#filter"
+
   resources :todos
+
+  get "todo/create/todos[]" => "todos#create"
+  get "todo/create/:ingavedatum/:einddatum/:prioriteit/:beschrijving/:status"   =>  "todos#create"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
