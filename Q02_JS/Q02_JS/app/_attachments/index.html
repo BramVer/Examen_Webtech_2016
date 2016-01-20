@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="style/main.css" type="text/css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class='well'>
+        <table class='table table-hover'>
+        
+        <div id='output'></div>
+        <div id='edit'></div>
+        <div id='search'>
+            <input type='text' id='todos' placeholder='Todo' />
+            <button type='button' class='btn btn-success' onClick='searchDoc()'>Zoeken</button>
+        </div>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                    <td colspan='3' align='center'>
+                    <h2>Voeg todos toe</h2></td>
+                    </tr>
+                    <tr>
+                    <td colspan='3'> </td>
+                    </tr>
+                    <tr>
+                    <td>Beschrijving :</td>
+                    <td><input id='beschrijving' type='text' size='50'></td>
+                    </tr>
+                    <tr>
+                    <td>Status :  </td><td><input id='status' type='text' size='50'></td>
+                    </tr>
+                    <tr>
+                    <tr>
+                    <td>Ingave datum :</td><td><input id='ingaveDatum' type='text' size='50'></td>
+                    </tr>
+                    <tr>
+                    <td>Eind datum :  </td><td><input id='eindDatum' type='text' size='50'></td>
+                    </tr>
+                    <tr>
+                    <tr>
+                    <td>Prioriteit :</td><td><input id='prioriteit' type='text' size='10'></td>
+                    </tr>
+                    <tr>
+                        <td colspan='3' align='right'>
+                        <button type='button' class='btn btn-primary' onClick='createDoc()'>Ok</button>
+                        </td>
+                    </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br/>
+  </div>
+  
+  
+<div class="container">
+	<h3>Look up todos by priority!</h3>
+	  <div class='well'>
+		<div id='search'>
+			<input type='text' id='priority' placeholder='Enter priority' />
+			<button type='button' class='btn btn-success' onClick='searchPriority()'>Search</button>
+		</div>
+		<div id='content'></div>
+  </div>
+
+</body>
+  	<script src='scripts/jquery.js'></script>
+    <script src='scripts/main.js'></script>
+</html>
