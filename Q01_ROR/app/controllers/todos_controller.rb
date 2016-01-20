@@ -1,4 +1,6 @@
 class TodosController < ApplicationController
+	before_action :connect
+
 	def show
 		@todo = Todo.find(params[:id])
 		render json: @todo
@@ -9,11 +11,13 @@ class TodosController < ApplicationController
 	end
 
 	def create
-		if @todo = Todo.create({ingave_datum: params[:ingavedatum], 
+		@todo = Todo.create({ingave_datum: params[:ingavedatum], 
 			eind_datum: params[:einddatum], prioriteit: params[:prioriteit], 
 			beschrijving: params[:beschrijving], status: params[:status]})
 			redirect_to(action: "show", id: @todo.id)
-		end
+		@response = @db.save_doc( {ingave_datum: params[:ingavedatum], 
+			eind_datum: params[:einddatum], prioriteit: params[:prioriteit], 
+			beschrijving: params[:beschrijving], status: params[:status]} )
 	end
 
 	def filter
@@ -24,5 +28,9 @@ class TodosController < ApplicationController
 	private
 	def cr_par
 		@result = Todo.new()
+	end
+
+	def connect
+		@db = CouchRest.database!(ENV['DB'])
 	end
 end

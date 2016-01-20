@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Q01Ror
   class Application < Rails::Application
+
+    ENV['DB'] = 'http://127.0.0.1:5984/examen'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
